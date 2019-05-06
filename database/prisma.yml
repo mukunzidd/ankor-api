@@ -1,0 +1,13 @@
+endpoint: https://eu1.prisma.sh/mukunzidd-bd50e6/ankor/dev
+
+datamodel: datamodel.graphql
+
+seed:
+  import: seed.graphql
+
+hooks:
+  post-deploy:
+    - graphql get-schema --project database
+    - graphql codegen
+
+# secret: mysecret123
